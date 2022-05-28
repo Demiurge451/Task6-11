@@ -1,0 +1,16 @@
+if (index > 0 && index < node.childrenAndParent){
+            index = node.left.childrenAndParent <= index ? --index : index;
+            res = res != null ? res : findK(index, node.left);
+            index -= node.left.childrenAndParent;
+            res = res != null ? res : findK(index, node.right);
+        }
+
+        if (index > node.childrenAndParent){
+            index -= node.childrenAndParent;
+            return res;
+        }
+        if (index == 0){
+            res = node.value;
+            return res;
+        }
+        return res;
